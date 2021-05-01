@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Setter
 @Getter
 @NoArgsConstructor
@@ -13,4 +15,5 @@ import lombok.Setter;
 @Builder
 public class BuildingRequest {
     private Long id;
+    private Date createdDate;
 }
