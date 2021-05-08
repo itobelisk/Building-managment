@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @Slf4j
 public class FloorController implements FloorApi {
-    private final FloorServiceImpl floorServiceimpl;
+
+    private final FloorServiceImpl floorServiceImpl;
+
     @Override
     public ResponseEntity<?> all(String accessToken) {
-        ResponseEntity<?> response = floorServiceimpl.all(accessToken);
-        log.info("PermissionController all {} status {}", response.getBody(), response.getStatusCodeValue());
+        ResponseEntity<?> response = floorServiceImpl.all(accessToken);
+        log.info("PermissionController all {} status {} ", response.getBody(), response.getStatusCodeValue());
         return new ResponseEntity<>(response.getBody(), response.getHeaders(), response.getStatusCode());
     }
 }

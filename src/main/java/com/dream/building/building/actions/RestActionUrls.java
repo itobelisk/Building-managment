@@ -5,7 +5,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class RestActionUrls {
-
     public String urlActionFloor(ActionEnums actionEnums){
         switch (actionEnums){
             case all: return FloorRestEndPoints.FLOOR_SHOW_ALL;

@@ -17,6 +17,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class FloorPostSender<T> {
     private final RestActionUrls restActionUrls;
+    private final RestTemplate restTemplate;
     @Async
     public ResponseEntity<?> sendPost(String accessToken, T t, String server, ActionEnums actionEnums) {
         HttpHeaders headers = new HttpHeaders();
@@ -24,7 +25,6 @@ public class FloorPostSender<T> {
         headers.setContentType(MediaType.APPLICATION_JSON);
         headers.add("Authorization", accessToken);
         HttpEntity<T> request = new HttpEntity<>(t, headers);
-        RestTemplate restTemplate = new RestTemplate();
         return restTemplate.postForEntity(url, request, Map.class);
     }
     @Async
@@ -34,7 +34,6 @@ public class FloorPostSender<T> {
         headers.setContentType(MediaType.APPLICATION_JSON);
         headers.add("Authorization", accessToken);
         HttpEntity<T> request = new HttpEntity<>(headers);
-        RestTemplate restTemplate = new RestTemplate();
         return restTemplate.postForEntity(url, request, Map.class);
     }
 }
